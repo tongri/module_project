@@ -8,8 +8,8 @@ class Enemy:
         self.lives = level
 
     @staticmethod
-    def select_attack():
-        return rand.randint(1, 2)
+    def select_attack(): #chooses a random hero for computer
+        return rand.randint(1, 3)
 
     def decrease_lives(self):
         self.lives -= 1
@@ -31,7 +31,7 @@ class Player:
 
     @staticmethod
     def fight(attack, defense):
-        if defense - attack == 1 or defense - attack == 2:
+        if defense - attack == 1 or defense - attack != 2:
             return 1
         elif not defense - attack:
             return 0
@@ -49,11 +49,11 @@ class Player:
 
     def attack(self, enemy_obj):
         print("Now its time to attack\n")
-        
         attacker = int(input("Enter your choice of soldiers(1, 2 or 3): ").strip())
 
         if attacker not in range(1, 4):
-            raise WrongHeroException(f'U r only able to choose 1, 2 or 3. {attacker} is wrong number')
+            raise WrongHeroException('U r only able to choose 1, 2 or 3.'
+                f' {attacker} is wrong number')
 
         Player.show_soldier(self.name, attacker)
         defencer = Enemy.select_attack()
@@ -89,4 +89,4 @@ class Player:
 
 if __name__ == '__main__':
     print('ok')
-
+    

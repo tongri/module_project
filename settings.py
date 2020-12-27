@@ -1,7 +1,11 @@
-enemy_level = 1
+'''This module is created in order to
+provide game.py with settings for both enemy
+and user'''
+
+ENEMY_LEVEL = 1
 HP = 5
-score = 0
-allowed_attack = True
+SCORE = 0
+ALLOWED_ATTACK = True
 
 COMMS = {
 	'start': 'begins the game',
